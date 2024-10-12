@@ -56,7 +56,7 @@ int main() {
         cout << "4. Recorrido Nivel por Nivel\n";
         cout << "5. Mostrar ancestros de un nodo\n";
         cout << "6. Saber el nivel de un elemento\n";
-        cout << "7. Saber el nivel de todo el arbol\n";
+        cout << "7. Saber la altura de todo el arbol\n";
         cout << "8. Terminar programa\n";
         cin >> opcion;
 
