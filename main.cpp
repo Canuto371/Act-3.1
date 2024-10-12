@@ -90,7 +90,7 @@ int main() {
                             cout << "Por favor, ingresa un número entero." << endl;
                         } else {
                             if (arbolito.whatlevelamI(value) < 0) {
-                                cout << "Por favor, intenta de nuevo." << endl;
+                                cout << "El nodo " << value << " no se encuentra en el árbol. Por favor, intenta de nuevo." << endl;
                             } else {
                                 cout << "Ancestros de " << value << ": ";
                                 arbolito.ancestors(arbolito.raiz, value);
@@ -118,11 +118,11 @@ int main() {
                         } else {
                             int nivel = arbolito.whatlevelamI(value);
                             if (nivel < 0) {
-                                cout << "Por favor, intenta de nuevo." << endl;
+                                cout << "El nodo " << value << " no se encuentra en el árbol. Por favor, intenta de nuevo." << endl;
                             } else {
-                                cout << "El nivel del nodo " << value << " es: " << nivel << endl; // Imprimir nivel
+                                cout << "El nivel del nodo " << value << " es: " << nivel << endl;
+                                break;
                             }
-                            break;
                         }
                     }
                 } catch (const exception &e) {

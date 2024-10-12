@@ -208,11 +208,5 @@ int Arbol::whatlevelamIrecursivo(Nodo* nodo, int dato){
 // Método para determinar el nivel de un nodo
 // Complejidad del peor caso: O(n)
 int Arbol::whatlevelamI(int dato){
-    int resultado = whatlevelamIrecursivo(raiz, dato);
-    if (resultado == -1) {
-        cout << "El dato " << dato << " no se encuentra en el árbol." << endl;
-    } else {
-        cout << "Nivel de " << dato << ": " << resultado << endl;
-    }
-    return resultado;
+    return whatlevelamIrecursivo(raiz, dato);
 }
