@@ -64,14 +64,17 @@ int main() {
             case 1:
                 tipoOrden = 1; // Preorden
                 arbolito.visit(tipoOrden);
+                cout << endl;
                 break;
             case 2:
                 tipoOrden = 2; // Inorden
                 arbolito.visit(tipoOrden);
+                cout << endl;
                 break;
             case 3:
                 tipoOrden = 3; // Postorden
                 arbolito.visit(tipoOrden);
+                cout << endl;
                 break;
             case 4:
                 tipoOrden = 4; // Nivel por Nivel
@@ -94,7 +97,7 @@ int main() {
                             } else {
                                 cout << "Ancestros de " << value << ": ";
                                 arbolito.ancestors(arbolito.raiz, value);
-                                cout << endl;
+                                cout << endl << endl;
                                 break; 
                             }
                         }
@@ -121,6 +124,7 @@ int main() {
                                 cout << "El nodo " << value << " no se encuentra en el árbol. Por favor, intenta de nuevo." << endl;
                             } else {
                                 cout << "El nivel del nodo " << value << " es: " << nivel << endl;
+                                cout << endl << endl;
                                 break;
                             }
                         }
@@ -132,7 +136,7 @@ int main() {
             }
             case 7:
                 cout << "La altura del arbol es: " << arbolito.height(arbolito.raiz);
-                cout << endl;
+                cout << endl << endl;
                 break;
             case 8:
                 cout << "Saliendo del programa.\n";
