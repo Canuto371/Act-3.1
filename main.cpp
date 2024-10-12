@@ -13,9 +13,10 @@ int main() {
     cin >> lim;
 
     for (int i = 0; i < lim; i++) {
+        cout << "El primer dato será el nodo raíz del nivel 0." << endl;
         cout << "Dato a insertar: " << endl;
         cin >> data;
-        arbolito.insertarNodo(arbolito.raiz, data); 
+        arbolito.raiz = arbolito.insertarNodo(arbolito.raiz, data); 
     }
 
     do {

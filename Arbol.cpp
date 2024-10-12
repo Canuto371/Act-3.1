@@ -56,6 +56,8 @@ Nodo* Arbol::insertarNodo(Nodo *r, int d){
     return r;
 }
 
+Arbol::~Arbol(){}
+
 void Arbol::preOrden(Nodo *r){
     if (r != nullptr){
         cout << r->getDato() << ", ";
@@ -106,20 +108,24 @@ void Arbol::visit(int tipoOrden) {
     Nodo *raiz = this->raiz;
     switch(tipoOrden) {
         case 1:
-            cout << "Recorrido PreOrden: \n";
+            cout << "Recorrido PreOrder: \n";
             preOrden(raiz);
+            cout << endl;
             break;
         case 2:
-            cout << "Recorrido InOrden: \n";
+            cout << "Recorrido InOrder: \n";
             inOrden(raiz);
+            cout << endl;
             break;
         case 3:
-            cout << "Recorrido PostOrden: \n";
+            cout << "Recorrido PostOrder: \n";
             postOrden(raiz);
+            cout << endl;
             break;
         case 4:
             cout << "Recorrido Nivel por Nivel: \n";
             nivelporNivel(raiz);
+            cout << endl;
             break;
         default:
             cout << "Elemento no válido. Ingrese un número entre 1 y 4.\n";
@@ -138,7 +144,6 @@ void Arbol::ancestors(Nodo *r, int value) {
     if (r == nullptr) return;
 
     if (r->getDato() == value) {
-        cout << value << " ";
         return;
     }
 
@@ -149,33 +154,35 @@ void Arbol::ancestors(Nodo *r, int value) {
         cout << r->getDato() << " ";
         ancestors(r->getRight(), value);
     }
-
 }
 
 int Arbol::whatlevelamIrecursivo(Nodo* nodo, int dato){
     if (nodo == nullptr){
-        return 0;
+        return -1;
     }
-    if (nodo->getDato()==dato){
-        return 1;
+    if (nodo->getDato() == dato){
+        return 0;
     } 
 
-    int numeroIzquierdo = whatlevelamIrecursivo (nodo -> getLeft(), dato); 
-    int numeroDerecho = whatlevelamIrecursivo (nodo -> getRight(), dato);
+    int nivelIzquierdo = whatlevelamIrecursivo(nodo->getLeft(), dato);
+    if (nivelIzquierdo != -1) {
+        return nivelIzquierdo + 1;
+    }
 
-    if (numeroIzquierdo > 0) {
-        return numeroIzquierdo + 1; 
+    int nivelDerecho = whatlevelamIrecursivo(nodo->getRight(), dato);
+    if (nivelDerecho != -1) {
+        return nivelDerecho + 1;
     }
-    if (numeroDerecho > 0){
-        return numeroDerecho +1;  
-    }
-    return 0; 
+
+    return -1;
 }
-
 
 int Arbol::whatlevelamI(int dato){
-    int resultado = whatlevelamIrecursivo (nodo, dato); 
-    cout << "Nivel de" << dato << ": " << resultado << endl;    
+    int resultado = whatlevelamIrecursivo(raiz, dato);
+    if (resultado == -1) {
+        cout << "El dato " << dato << " no se encuentra en el árbol." << endl;
+    } else {
+        cout << "Nivel de " << dato << ": " << resultado << endl;
+    }
+    return resultado;
 }
-
-
