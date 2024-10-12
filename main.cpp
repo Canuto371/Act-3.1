@@ -24,7 +24,7 @@ int main() {
             }
         }
 
-        cout << "El primer dato será el nodo raíz del nivel 0." << endl;
+        cout << "***El primer dato será el nodo raíz del nivel 0.***\n\n";
 
         for (int i = 0; i < lim; i++) {
             cout << "Dato a insertar: " << endl;
@@ -49,15 +49,19 @@ int main() {
 
     // Menú 
     do {
-        cout << "Opciones del árbol:\n";
+        cout << "=========================================\n";
+        cout << "          Opciones del Árbol            \n";
+        cout << "=========================================\n";
         cout << "1. Recorrido Preorder\n";
         cout << "2. Recorrido Inorder\n";
         cout << "3. Recorrido Postorder\n";
         cout << "4. Recorrido Nivel por Nivel\n";
         cout << "5. Mostrar ancestros de un nodo\n";
         cout << "6. Saber el nivel de un elemento\n";
-        cout << "7. Saber la altura de todo el arbol\n";
+        cout << "7. Saber la altura de todo el árbol\n";
         cout << "8. Terminar programa\n";
+        cout << "=========================================\n";
+        cout << "Selecciona una opción (1-8): ";
         cin >> opcion;
 
         switch (opcion) { 
