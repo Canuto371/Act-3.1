@@ -27,7 +27,8 @@ int main() {
         cout << "4. Recorrido Nivel por Nivel\n";
         cout << "5. Mostrar ancestros de un nodo\n";
         cout << "6. Saber el nivel de un elemento\n";
-        cout << "7. Terminar programa\n";
+        cout << "7. Saber el nivel de todo el arbol\n";
+        cout << "8. Terminar programa\n";
         cin >> opcion;
 
         switch (opcion) { 
@@ -63,19 +64,23 @@ int main() {
                 cout << "Ingresar el nodo: ";
                 cin >> value;
                 int nivel = arbolito.whatlevelamI(value);
-                if (nivel == 0) {
+                if (nivel < 0) {
                     cout << "El nodo " << value << " no se encuentra en el árbol." << endl;
                 }
                 break;
             }
             case 7:
+                cout << "La altura del arbol es: " << arbolito.height(arbolito.raiz);
+                cout << endl;
+                break;
+            case 8:
                 cout << "Saliendo del programa.\n";
                 break;
             default:
                 cout << "Opción no válida. Favor de intentar de nuevo.\n";
                 break;
         }
-    } while (opcion != 7);
+    } while (opcion != 8);
 
     return 0;
 }
