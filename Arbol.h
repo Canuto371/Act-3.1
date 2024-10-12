@@ -21,8 +21,6 @@ public:
 };
 
 class Arbol {
-private:
-
 public:
     Nodo *raiz;
     Arbol();

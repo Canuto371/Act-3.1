@@ -1,24 +1,53 @@
 #include "Arbol.cpp"
 #include <iostream>
+#include <limits>
 using namespace std;
 
 int main() {
-    Arbol arbolito;
+    Arbol arbolito; // Instancia de clase Árbol
     int lim;
     int data;
     int tipoOrden;
     int opcion;
 
-    cout << "¿Cuántos datos deseas insertar?" << endl;
-    cin >> lim;
-    cout << "El primer dato será el nodo raíz del nivel 0." << endl;
+    try {
+        cout << "¿Cuántos datos deseas insertar?" << endl;
 
-    for (int i = 0; i < lim; i++) {
-        cout << "Dato a insertar: " << endl;
-        cin >> data;
-        arbolito.raiz = arbolito.insertarNodo(arbolito.raiz, data); 
+        while (true) {
+            cin >> lim;
+            if (cin.fail() || lim <= 0) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+                cout << "Por favor, ingresa un número entero positivo." << endl;
+            } else {
+                break;
+            }
+        }
+
+        cout << "El primer dato será el nodo raíz del nivel 0." << endl;
+
+        for (int i = 0; i < lim; i++) {
+            cout << "Dato a insertar: " << endl;
+
+            while (true) {
+                cin >> data;
+                if (cin.fail()) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+                    cout << "Por favor, ingresa un número entero." << endl;
+                } else {
+                    arbolito.raiz = arbolito.insertarNodo(arbolito.raiz, data);
+                    break;
+                }
+            }
+
+        }
+    } catch (const exception &e) {
+        cout << "Ocurrió un error: " << e.what() << endl;
     }
 
+
+    // Menú 
     do {
         cout << "Opciones del árbol:\n";
         cout << "1. Recorrido Preorder\n";

@@ -4,15 +4,18 @@
 #include <string>
 using namespace std;
 
+// Definición del constructor por defecto de la clase Nodo
 Nodo::Nodo(){
     right = left = nullptr;
 }
 
+// Definición del constructor que recibe un dato
 Nodo::Nodo(int d){
     dato = d;
     right = left = nullptr;
 }
 
+// Obtener datos
 int Nodo::getDato(){
     return dato;
 }
@@ -37,12 +40,16 @@ void Nodo::setDato(int _dato){
     dato = _dato;
 }
 
+// Destructor de la clase Nodo
 Nodo::~Nodo(){}
 
+// Constructor de la clase Arbol
 Arbol::Arbol(){
     raiz = nullptr;
 }
 
+// Complejidad del peor caso: O(n) 
+// Donde n es la altura del árbol.
 Nodo* Arbol::insertarNodo(Nodo *r, int d){
     if (r == nullptr) {
         return new Nodo(d);
@@ -57,8 +64,12 @@ Nodo* Arbol::insertarNodo(Nodo *r, int d){
     return r;
 }
 
+// Destructor de la clase Arbol
 Arbol::~Arbol(){}
 
+// Método para realizar el recorrido en preorden
+// Complejidad del peor caso: O(n) 
+// Donde n es el número de nodos.
 void Arbol::preOrden(Nodo *r){
     if (r != nullptr){
         cout << r->getDato() << ", ";
@@ -66,7 +77,9 @@ void Arbol::preOrden(Nodo *r){
         preOrden(r->getRight());
     }
 }
-  		
+
+// Método para realizar el recorrido en inorden	
+// Complejidad del peor caso: O(n) 	
 void Arbol::inOrden(Nodo *r){
     if (r != nullptr){
         inOrden(r->getLeft());
@@ -74,7 +87,9 @@ void Arbol::inOrden(Nodo *r){
         inOrden(r->getRight());
     }
 }
-  		
+
+// Método para realizar el recorrido en postorden  
+// Complejidad del peor caso: O(n) 
 void Arbol::postOrden(Nodo *r){
     if (r != nullptr){
         postOrden(r->getLeft());
@@ -83,6 +98,8 @@ void Arbol::postOrden(Nodo *r){
     }
 }
 
+// Método para imprimir los nodos de un nivel específico
+// Complejidad del peor caso: O(n)
 void Arbol::imprimirNivel(Nodo *r, int nivel){
     if (r == nullptr){
         return;
@@ -95,6 +112,8 @@ void Arbol::imprimirNivel(Nodo *r, int nivel){
     }
 }
 
+// Método para recorrer el árbol por niveles
+// Complejidad del peor caso: O(n)
 void Arbol::nivelporNivel(Nodo *r){
     int altura = height(r);
     if (r != nullptr) {
@@ -105,6 +124,8 @@ void Arbol::nivelporNivel(Nodo *r){
     }
 }
 
+// Método para realizar el recorrido basado en la opción seleccionada
+// Complejidad del peor caso: O(n)
 void Arbol::visit(int tipoOrden) {
     Nodo *raiz = this->raiz;
     switch(tipoOrden) {
@@ -134,6 +155,8 @@ void Arbol::visit(int tipoOrden) {
     }
 }
 
+// Método para calcular la altura del árbol
+// Complejidad del peor caso: O(n)
 int Arbol::height(Nodo* r) {
     if (r == nullptr) return 0;
     int leftHeight = height(r->getLeft());
@@ -141,6 +164,8 @@ int Arbol::height(Nodo* r) {
     return 1 + max(leftHeight, rightHeight);
 }
 
+// Método para mostrar los ancestros de un nodo
+// Complejidad del peor caso: O(n)
 void Arbol::ancestors(Nodo *r, int value) {
     if (r == nullptr) return;
 
@@ -157,6 +182,8 @@ void Arbol::ancestors(Nodo *r, int value) {
     }
 }
 
+// Método recursivo para encontrar el nivel de un nodo
+// Complejidad del peor caso: O(n)
 int Arbol::whatlevelamIrecursivo(Nodo* nodo, int dato){
     if (nodo == nullptr){
         return -1;
@@ -178,6 +205,8 @@ int Arbol::whatlevelamIrecursivo(Nodo* nodo, int dato){
     return -1;
 }
 
+// Método para determinar el nivel de un nodo
+// Complejidad del peor caso: O(n)
 int Arbol::whatlevelamI(int dato){
     int resultado = whatlevelamIrecursivo(raiz, dato);
     if (resultado == -1) {
