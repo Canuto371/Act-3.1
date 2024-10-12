@@ -45,10 +45,11 @@ Arbol::Arbol(){
 
 Nodo* Arbol::insertarNodo(Nodo *r, int d){
     if (r == nullptr) {
-        r = new Nodo(d);
-    } else if(d < r->getDato()) {
+        return new Nodo(d);
+    } 
+    if (d < r->getDato()) {
         r->setLeft(insertarNodo(r->getLeft(),d));
-    } else if(d > r->getDato()) {
+    } else if (d > r->getDato()) {
         r->setRight(insertarNodo(r->getRight(),d));
     } else {
         cout << "ERROR. Solo puede existir una vez el valor." << endl;

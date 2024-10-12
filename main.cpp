@@ -1,4 +1,4 @@
-#include "Arbol.h"
+#include "Arbol.cpp"
 #include <iostream>
 using namespace std;
 
@@ -11,9 +11,9 @@ int main() {
 
     cout << "¿Cuántos datos deseas insertar?" << endl;
     cin >> lim;
+    cout << "El primer dato será el nodo raíz del nivel 0." << endl;
 
     for (int i = 0; i < lim; i++) {
-        cout << "El primer dato será el nodo raíz del nivel 0." << endl;
         cout << "Dato a insertar: " << endl;
         cin >> data;
         arbolito.raiz = arbolito.insertarNodo(arbolito.raiz, data); 
