@@ -80,23 +80,55 @@ int main() {
             case 5: 
             {
                 int value;
-                cout << "Ingresar el nodo: ";
-                cin >> value;
-                cout << "Ancestros de " << value << ": ";
-                arbolito.ancestors(arbolito.raiz, value);
-                cout << endl;
-                break;
+                try{   
+                    while (true) {
+                        cout << "Ingresar el nodo: ";
+                        cin >> value;
+                        if (cin.fail()) {
+                            cin.clear();
+                            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+                            cout << "Por favor, ingresa un número entero." << endl;
+                        } else {
+                            if (arbolito.whatlevelamI(value) < 0) {
+                                cout << "Por favor, intenta de nuevo." << endl;
+                            } else {
+                                cout << "Ancestros de " << value << ": ";
+                                arbolito.ancestors(arbolito.raiz, value);
+                                cout << endl;
+                                break; 
+                            }
+                        }
+                    }
+                } catch (const exception &e) {
+                    cout << "Ocurrió un error: " << e.what() << endl;
+                }
+            break;
             }
             case 6:
             {
                 int value;
-                cout << "Ingresar el nodo: ";
-                cin >> value;
-                int nivel = arbolito.whatlevelamI(value);
-                if (nivel < 0) {
-                    cout << "El nodo " << value << " no se encuentra en el árbol." << endl;
+                try{
+                    while (true) {
+                        cout << "Ingresar el nodo: ";
+                        cin >> value;
+                        if (cin.fail()) {
+                            cin.clear();
+                            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+                            cout << "Por favor, ingresa un número entero." << endl;
+                        } else {
+                            int nivel = arbolito.whatlevelamI(value);
+                            if (nivel < 0) {
+                                cout << "Por favor, intenta de nuevo." << endl;
+                            } else {
+                                cout << "El nivel del nodo " << value << " es: " << nivel << endl; // Imprimir nivel
+                            }
+                            break;
+                        }
+                    }
+                } catch (const exception &e) {
+                    cout << "Ocurrió un error: " << e.what() << endl;
                 }
-                break;
+            break;
             }
             case 7:
                 cout << "La altura del arbol es: " << arbolito.height(arbolito.raiz);
