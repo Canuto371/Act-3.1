@@ -145,7 +145,7 @@ int main() {
             break;
             }
             case 7:
-                cout << "La altura del arbol es: " << arbolito.height(arbolito.raiz);
+                cout << "La altura del árbol es: " << arbolito.height(arbolito.raiz);
                 cout << endl << endl;
                 break;
             case 8:
