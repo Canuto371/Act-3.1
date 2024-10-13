@@ -64,6 +64,12 @@ int main() {
         cout << "Selecciona una opción (1-8): ";
         cin >> opcion;
 
+        if (cin.fail()){
+            cin.clear();
+            cin.ignore(numeric_limits<std::streamsize>::max(), '\n');
+            cout<<"Ingresa un número válido.\n";
+        }
+
         switch (opcion) { 
             case 1:
                 tipoOrden = 1; // Preorden
