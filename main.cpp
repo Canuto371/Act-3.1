@@ -1,3 +1,12 @@
+// Act 3.1 - Operaciones avanzadas en un BST
+// Elizabeth Jauregui Zarate (A01253381)
+
+/* El presente programa permite al usuario introducir n datos e interactuar con ellos.
+   El programa guarda los datos en un árbol binario ordenado. El usuario puede pedir hacer 
+   recorridos de los datos (preorden, inorden, postorden y nivel por nivel), mostrar los ancestros
+   y el nivel de algún elemento, y saber la altura del árbol completo. 
+*/   
+
 #include "Arbol.cpp"
 #include <iostream>
 #include <limits>
